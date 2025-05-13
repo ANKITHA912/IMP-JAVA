@@ -1,0 +1,41 @@
+CODE_1
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter number of people: ");
+        int n = sc.nextInt(); 
+
+        int[] arr = new int[n * 2]; 
+
+        System.out.println("Enter height and weight for each person:");
+        for (int i = 0; i < n * 2; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        int max_height = arr[0];
+        int max_weight = arr[1];
+        int max_height_index = 0;
+        int max_weight_index = 1;
+
+        for (int i = 0; i < n * 2; i++) {
+            if (i % 2 == 0) { 
+                if (arr[i] > max_height) {
+                    max_height = arr[i];
+                    max_height_index = i;
+                }
+            } else { 
+                if (arr[i] > max_weight) {
+                    max_weight = arr[i];
+                    max_weight_index = i;
+                }
+            }
+        }
+
+        System.out.println("Maximum Height: " + max_height + " (Person " + (max_height_index / 2 + 1) + ")");
+        System.out.println("Maximum Weight: " + max_weight + " (Person " + (max_weight_index / 2 + 1) + ")");
+    }
+}
