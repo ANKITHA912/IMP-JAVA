@@ -44,3 +44,28 @@ public class Main
 		
 	}
 }
+
+CODE_3
+
+    import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a binary number: ");
+        int n = sc.nextInt();
+
+        int result = 0;
+        int base = 1;
+
+        while (n != 0) {
+            int rem = n % 10;     
+            result += rem * base; 
+            base = base * 2;      
+            n = n / 10;           
+        }
+
+        System.out.println("Decimal value: " + result);
+    }
+}
