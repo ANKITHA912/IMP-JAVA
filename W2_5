@@ -1,0 +1,31 @@
+CODE _1
+
+import java.util.Scanner;
+ public class IthSetBitUsingBitwise {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int number = 23; 
+        System.out.print("Enter the set bit index i (starting from 0): ");
+        int i = scanner.nextInt();
+
+        int count = 0;      
+        int position = 0;   
+
+        while (number != 0) {
+            if ((number & 1) == 1) {
+                if (count == i) {
+                    System.out.println("The " + i + "-th set bit is at position: " + position);
+                    return;
+                }
+                count++;
+            }
+
+            number = number >> 1;
+            position++;
+        }
+
+        System.out.println("The number does not have " + (i + 1) + " set bits.");
+        scanner.close();
+    }
+}
